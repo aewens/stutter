@@ -133,7 +133,7 @@ export default class StutterOptions extends EventEmitter {
         val = this.numericContain(0.02, 0.9, val)
         break
       case 'maxWordLength':
-        val = Math.parseInt(this.numericContain(5, 50, val), 10)
+        val = parseInt(this.numericContain(5, 50, val), 10)
     }
     if (this.hasOwnProperty('_' + prop) && this['_' + prop] !== val) {
       this['_' + prop] = val

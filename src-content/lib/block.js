@@ -42,7 +42,8 @@ export default class Block {
       let subWords = brokenWord.match(wordRegex)
       subWords.map(subWord => {
         // break long words
-        if (subWord.length > (settings.getProp('maxWordLength') || 13)) {
+        let maxWordLength = (settings.getProp('maxWordLength') || 13)
+        if (subWord.length > maxWordLength) {
           let brokenSubWord = breakLongWord(subWord)
           let subSubWords = brokenSubWord.match(wordRegex)
           subSubWords.map(subSubWord => {
