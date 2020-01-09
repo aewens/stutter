@@ -30,7 +30,7 @@ function breakLongWord (word) {
 }
 
 export default class Block {
-  constructor (val) {
+  constructor (val, settings) {
     this.words = []
     this.index = 0
 
@@ -42,7 +42,7 @@ export default class Block {
       let subWords = brokenWord.match(wordRegex)
       subWords.map(subWord => {
         // break long words
-        if (subWord.length > 13) {
+        if (subWord.length > (settings.getProp('maxWordLength') || 13)) {
           let brokenSubWord = breakLongWord(subWord)
           let subSubWords = brokenSubWord.match(wordRegex)
           subSubWords.map(subSubWord => {
